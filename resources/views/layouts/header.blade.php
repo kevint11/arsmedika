@@ -79,7 +79,7 @@
               <span class="menu-header-text">Pengguna</span>
             </li>
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="{{ route('Dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Profil</div>
               </a>
@@ -96,12 +96,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                  <a href="{{ route('Daftar Layanan') }}" class="menu-link">
                     <div data-i18n="Account">Daftar Layanan</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="{{ route('Pembayaran') }}" class="menu-link">
                     <div data-i18n="Notifications">Pembayaran</div>
                   </a>
                 </li>
@@ -111,6 +111,3 @@
           </ul>
         </aside>
         <!-- / Menu -->
-
-        <!-- Layout container -->
-        <div class="layout-page">

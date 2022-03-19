@@ -1,5 +1,6 @@
   @include('layouts.style')
-  <title>Dashboard</title>
+  
+<title>Arsmedika - Asuransi Kesehatan</title>
   
   <!-- Masukkan Style Css tambahan disini -->
 

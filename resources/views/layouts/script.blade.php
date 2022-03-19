@@ -1,11 +1,12 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('theme-package/assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
-    <script src="{{ asset('theme-package/assets/vendor/js/menu.js') }}"></script>
+    
+    {{-- <script src="{{ asset('resources/js/ajax.min.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery-latest.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery-min.ui.js') }}"></script>
+    <script src="{{ asset('resources/js/jquery-pack.js') }}"></script> --}}
     <!-- endbuild -->
 
     
