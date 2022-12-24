@@ -493,11 +493,11 @@ class DatabaseSeeder extends Seeder
             'jenis_kelamin'=>'Laki-laki',
             'tanggal_lahir'=>'1997-12-11',
             'tempat_lahir'=>'Medan'
+            'email'=>'aaa@as.com',
         ]);
 
         $user1 = User::create([
             'nik_id'=>$dpasien1->nik,
-            'email'=>'PM-400',
             'password'=>'123123123',
             'status'=>'Aktif'
         ]);

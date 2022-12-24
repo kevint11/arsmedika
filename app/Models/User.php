@@ -19,7 +19,6 @@ class User extends Authenticatable
      */
     protected $table= 'user';
     protected $fillable = [
-        'email',
         'password',
         'nik_id',
         'status',
@@ -53,5 +52,10 @@ class User extends Authenticatable
 
     public function biodata(){
         return $this->belongsTo(DataPasien::class,'nik_id');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 }

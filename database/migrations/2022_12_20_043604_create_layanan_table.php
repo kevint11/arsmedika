@@ -66,6 +66,7 @@ class CreateLayananTable extends Migration
         Schema::create('data_pasien', function (Blueprint $table) {
             $table->string('nik')->unique()->primary();
             $table->string('nama');
+            $table->string('email')->unique();
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir');
