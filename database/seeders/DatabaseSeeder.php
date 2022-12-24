@@ -492,8 +492,8 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Kevin F.S',
             'jenis_kelamin'=>'Laki-laki',
             'tanggal_lahir'=>'1997-12-11',
-            'tempat_lahir'=>'Medan'
-            'email'=>'aaa@as.com',
+            'tempat_lahir'=>'Medan',
+            'email'=>'aaa@as.com'
         ]);
 
         $user1 = User::create([
