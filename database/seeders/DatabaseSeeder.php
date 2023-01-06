@@ -23,8 +23,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKAM',
             'kelas'=>'PM-100',
             'nama'=>'Biaya kamar',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>100000
         ]);
 
@@ -32,8 +31,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKAM',
             'kelas'=>'PM-200',
             'nama'=>'Biaya kamar',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>200000
         ]);
 
@@ -41,8 +39,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKAM',
             'kelas'=>'PM-400',
             'nama'=>'Biaya kamar',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>400000
         ]);
 
@@ -50,8 +47,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKAM',
             'kelas'=>'PM-800',
             'nama'=>'Biaya kamar',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>800000
         ]);
 
@@ -59,8 +55,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDU',
             'kelas'=>'PM-100',
             'nama'=>'Kunjungan dokter umum',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>50000
         ]);
 
@@ -68,8 +63,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDU',
             'kelas'=>'PM-200',
             'nama'=>'Kunjungan dokter umum',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>60000
         ]);
 
@@ -77,8 +71,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDU',
             'kelas'=>'PM-400',
             'nama'=>'Kunjungan dokter umum',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>70000
         ]);
 
@@ -86,8 +79,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDU',
             'kelas'=>'PM-800',
             'nama'=>'Kunjungan dokter umum',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>80000
         ]);
 
@@ -95,8 +87,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDS',
             'kelas'=>'PM-100',
             'nama'=>'Kunjungan dokter spesialis',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>80000
         ]);
 
@@ -104,8 +95,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDS',
             'kelas'=>'PM-200',
             'nama'=>'Kunjungan dokter spesialis',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>100000
         ]);
 
@@ -113,8 +103,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDS',
             'kelas'=>'PM-400',
             'nama'=>'Kunjungan dokter spesialis',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>135000
         ]);
 
@@ -122,8 +111,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIKDS',
             'kelas'=>'PM-800',
             'nama'=>'Kunjungan dokter spesialis',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>1,
             'harga'=>200000
         ]);
 
@@ -131,8 +119,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIICU',
             'kelas'=>'PM-100',
             'nama'=>'ICU/NICCU',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>150000
         ]);
 
@@ -140,8 +127,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIICU',
             'kelas'=>'PM-200',
             'nama'=>'ICU/NICCU',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>300000
         ]);
 
@@ -149,8 +135,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIICU',
             'kelas'=>'PM-400',
             'nama'=>'ICU/NICCU',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>600000
         ]);
 
@@ -158,8 +143,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIICU',
             'kelas'=>'PM-800',
             'nama'=>'ICU/NICCU',
-            'batas_penggunaan'=>90,
-            'satuan_penggunaan'=>'per-hari',
+            'batas'=>90,
             'harga'=>1200000
         ]);
 
@@ -167,8 +151,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOK',
             'kelas'=>'PM-100',
             'nama'=>'Pembedahan operasi kecil',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>1000000
         ]);
 
@@ -176,8 +159,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOK',
             'kelas'=>'PM-200',
             'nama'=>'Pembedahan operasi kecil',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>2000000
         ]);
 
@@ -185,8 +167,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOK',
             'kelas'=>'PM-400',
             'nama'=>'Pembedahan operasi kecil',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>4000000
         ]);
 
@@ -194,8 +175,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOK',
             'kelas'=>'PM-800',
             'nama'=>'Pembedahan operasi kecil',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>8000000
         ]);
 
@@ -203,8 +183,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOB',
             'kelas'=>'PM-100',
             'nama'=>'Pembedahan operasi besar',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>3000000
         ]);
 
@@ -212,8 +191,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOB',
             'kelas'=>'PM-200',
             'nama'=>'Pembedahan operasi besar',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>6000000
         ]);
 
@@ -221,8 +199,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOB',
             'kelas'=>'PM-400',
             'nama'=>'Pembedahan operasi besar',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>12000000
         ]);
 
@@ -230,8 +207,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIPOB',
             'kelas'=>'PM-800',
             'nama'=>'Pembedahan operasi besar',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-operasi',
+            'batas'=>0,
             'harga'=>24000000
         ]);
 
@@ -239,8 +215,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIANK',
             'kelas'=>'PM-100',
             'nama'=>'Aneka perawatan rumah sakit',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>1000000
         ]);
 
@@ -248,8 +223,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIANK',
             'kelas'=>'PM-200',
             'nama'=>'Aneka perawatan rumah sakit',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>2000000
         ]);
 
@@ -257,8 +231,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIANK',
             'kelas'=>'PM-400',
             'nama'=>'Aneka perawatan rumah sakit',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>4000000
         ]);
 
@@ -266,8 +239,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIANK',
             'kelas'=>'PM-800',
             'nama'=>'Aneka perawatan rumah sakit',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>8000000
         ]);
 
@@ -275,8 +247,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIAMB',
             'kelas'=>'PM-100',
             'nama'=>'Ambulance',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kejadian',
+            'batas'=>0,
             'harga'=>50000
         ]);
 
@@ -284,8 +255,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIAMB',
             'kelas'=>'PM-200',
             'nama'=>'Ambulance',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kejadian',
+            'batas'=>0,
             'harga'=>60000
         ]);
 
@@ -293,8 +263,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIAMB',
             'kelas'=>'PM-400',
             'nama'=>'Ambulance',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kejadian',
+            'batas'=>0,
             'harga'=>70000
         ]);
 
@@ -302,8 +271,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIAMB',
             'kelas'=>'PM-800',
             'nama'=>'Ambulance',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kejadian',
+            'batas'=>0,
             'harga'=>80000
         ]);
 
@@ -311,8 +279,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RILAB',
             'kelas'=>'PM-100',
             'nama'=>'Test diagnostik atau laboratorium',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>1000000
         ]);
 
@@ -320,8 +287,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RILAB',
             'kelas'=>'PM-200',
             'nama'=>'Test diagnostik atau laboratorium',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>2000000
         ]);
 
@@ -329,8 +295,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RILAB',
             'kelas'=>'PM-400',
             'nama'=>'Test diagnostik atau laboratorium',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>4000000
         ]);
 
@@ -338,8 +303,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RILAB',
             'kelas'=>'PM-800',
             'nama'=>'Test diagnostik atau laboratorium',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>8000000
         ]);
 
@@ -347,8 +311,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIOBT',
             'kelas'=>'PM-100',
             'nama'=>'Obat-obatan',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>1000000
         ]);
 
@@ -356,8 +319,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIOBT',
             'kelas'=>'PM-200',
             'nama'=>'Obat-obatan',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>2000000
         ]);
 
@@ -365,8 +327,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIOBT',
             'kelas'=>'PM-400',
             'nama'=>'Obat-obatan',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>4000000
         ]);
 
@@ -374,8 +335,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'RIOBT',
             'kelas'=>'PM-800',
             'nama'=>'Obat-obatan',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-tahun',
+            'batas'=>365,
             'harga'=>8000000
         ]);
 
@@ -383,8 +343,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIL',
             'kelas'=>'PM-100',
             'nama'=>'Premi - Pria',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>750000
         ]);
 
@@ -392,8 +351,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIL',
             'kelas'=>'PM-200',
             'nama'=>'Premi - Pria',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>1250000
         ]);
 
@@ -401,8 +359,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIL',
             'kelas'=>'PM-400',
             'nama'=>'Premi - Pria',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>1750000
         ]);
 
@@ -410,8 +367,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIL',
             'kelas'=>'PM-800',
             'nama'=>'Premi - Pria',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>2450000
         ]);
 
@@ -419,8 +375,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIW',
             'kelas'=>'PM-100',
             'nama'=>'Premi - Wanita',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>850000
         ]);
 
@@ -428,8 +383,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIW',
             'kelas'=>'PM-200',
             'nama'=>'Premi - Wanita',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>1350000
         ]);
 
@@ -437,8 +391,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIW',
             'kelas'=>'PM-400',
             'nama'=>'Premi - Wanita',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>2000000
         ]);
 
@@ -446,8 +399,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIW',
             'kelas'=>'PM-800',
             'nama'=>'Premi - Wanita',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>2700000
         ]);
 
@@ -455,8 +407,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIA',
             'kelas'=>'PM-100',
             'nama'=>'Premi - Anak dibawah 12 tahun',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>825000
         ]);
 
@@ -464,8 +415,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIA',
             'kelas'=>'PM-200',
             'nama'=>'Premi - Anak dibawah 12 tahun',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>1300000
         ]);
 
@@ -473,8 +423,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIA',
             'kelas'=>'PM-400',
             'nama'=>'Premi - Anak dibawah 12 tahun',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>1800000
         ]);
 
@@ -482,8 +431,7 @@ class DatabaseSeeder extends Seeder
             'kode'=>'PREMIA',
             'kelas'=>'PM-800',
             'nama'=>'Premi - Anak dibawah 12 tahun',
-            'batas_penggunaan'=>1,
-            'satuan_penggunaan'=>'per-kali',
+            'batas'=>0,
             'harga'=>2500000
         ]);
 
@@ -511,133 +459,120 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$a3->id,
-            'nama_layanan'=>$a3->nama,
+            'kode_layanan'=>$a3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$a3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$b3->id,
-            'nama_layanan'=>$b3->nama,
+            'kode_layanan'=>$b3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$b3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$c3->id,
-            'nama_layanan'=>$c3->nama,
+            'kode_layanan'=>$c3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$c3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$d3->id,
-            'nama_layanan'=>$d3->nama,
+            'kode_layanan'=>$d3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$d3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$e3->id,
-            'nama_layanan'=>$e3->nama,
+            'kode_layanan'=>$e3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$e3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$f3->id,
-            'nama_layanan'=>$f3->nama,
+            'kode_layanan'=>$f3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$f3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$h3->id,
-            'nama_layanan'=>$h3->nama,
+            'kode_layanan'=>$h3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$h3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$i3->id,
-            'nama_layanan'=>$i3->nama,
+            'kode_layanan'=>$i3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$i3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$j3->id,
-            'nama_layanan'=>$j3->nama,
+            'kode_layanan'=>$j3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$j3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$k3->id,
-            'nama_layanan'=>$k3->nama,
+            'kode_layanan'=>$k3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$k3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$l3->id,
-            'nama_layanan'=>$l3->nama,
+            'kode_layanan'=>$l3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$l3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$m3->id,
-            'nama_layanan'=>$m3->nama,
+            'kode_layanan'=>$m3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$m3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
         $spasien1 = SaldoLayanan::create([
-            'nik_id'=>$dpasien1->nik,
             'kartu_id'=>$kpasien1->id,
             'layanan_id'=>$n3->id,
-            'nama_layanan'=>$n3->nama,
+            'kode_layanan'=>$n3->nama,
             'pembayaran'=>0,
             'sisa_saldo'=>$n3->harga,
-            'penggunaan'=>1
+            'penggunaan'=>0
         ]);
 
     }

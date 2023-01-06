@@ -25,4 +25,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('Dashboard');
     Route::get('/daftar-layanan', [App\Http\Controllers\UserController::class, 'tblLayanan'])->name('Daftar Layanan');
     Route::get('/pembayaran', [App\Http\Controllers\UserController::class, 'pembayaran'])->name('Pembayaran');
+    Route::post('/pembayaran', [App\Http\Controllers\UserController::class, 'confirmPembayaran'])->name('Konfirmasi Pembayaran');
 });

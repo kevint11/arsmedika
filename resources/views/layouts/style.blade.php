@@ -43,6 +43,7 @@
 <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet"> --}}
 
 <!-- Icons. Uncomment required icon fonts -->
+<link href="{{ asset('theme-package/assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('theme-package/assets/vendor/fonts/boxicons.css') }}" />
 
 <!-- Core CSS -->
@@ -67,6 +68,7 @@
 <script src="{{ asset('theme-package/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('theme-package/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
+<script src="{{ asset('theme-package/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('theme-package/assets/vendor/js/menu.js') }}"></script>
 
 

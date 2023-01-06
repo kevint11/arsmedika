@@ -18,8 +18,7 @@ class CreateLayananTable extends Migration
             $table->string('kode');
             $table->string('kelas');
             $table->string('nama');
-            $table->unsignedInteger('batas_penggunaan');
-            $table->string('satuan_penggunaan');
+            $table->unsignedInteger('batas');
             $table->unsignedBigInteger('harga');
             $table->timestamps();
             $table->softDeletes();
@@ -39,9 +38,8 @@ class CreateLayananTable extends Migration
         Schema::create('saldo_layanan', function (Blueprint $table) {
             $table->id();
             $table->string('kartu_id');
-            $table->string('nik_id');
             $table->string('layanan_id');
-            $table->string('nama_layanan');
+            $table->string('kode_layanan');
             $table->unsignedBigInteger('pembayaran');
             $table->unsignedBigInteger('sisa_saldo');
             $table->unsignedInteger('penggunaan');
@@ -49,16 +47,36 @@ class CreateLayananTable extends Migration
             $table->softDeletes();
         });
 
+        Schema::create('history_pembayaran', function (Blueprint $table) {
+            $table->id();
+            $table->string('saldo_id');
+            $table->string('detail_id');
+            $table->unsignedBigInteger('pembayaran');
+            $table->unsignedBigInteger('potongan_saldo');
+            $table->unsignedBigInteger('sisa_saldo');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nik_id');
             $table->string('kartu_id');
             $table->string('kode_kwitansi');
-            $table->string('nama_layanan');
+            $table->unsignedBigInteger('total_biaya');
+            $table->unsignedBigInteger('total_potongan');
+            $table->unsignedBigInteger('biaya_akhir');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('detail_pembayaran', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('pembayaran_id');
+            $table->string('kode_layanan');
+            $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('biaya');
             $table->unsignedBigInteger('potongan_harga');
             $table->unsignedBigInteger('biaya_akhir');
-            $table->unsignedBigInteger('total_biaya');
             $table->timestamps();
             $table->softDeletes();
         });
