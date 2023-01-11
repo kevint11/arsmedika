@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Config\Permission;
+use App\Models\Config\Role;
 use App\Models\DataPasien;
 use App\Models\KartuPasien;
 use App\Models\Layanan;
+use App\Models\Roles;
 use App\Models\SaldoLayanan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -18,6 +21,49 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
+        // Reset cached roles and permissions
+        app()['cache']->forget('spatie.permission.cache');
+
+        // Create the admin role
+        $adminRole = Role::create([
+            'name' => 'admin',
+            'guard_name' => 'web',
+        ]);
+        $userRole = Role::create([
+            'name' => 'user',
+            'guard_name' => 'web'
+        ]);
+
+        $pembayaranPermission = Permission::updateOrCreate(
+            ['name' => 'pembayaran'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $confirmPembayaranPermission = Permission::updateOrCreate(
+            ['name' => 'confirmPembayaran'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $dashboardPermission = Permission::updateOrCreate(
+            ['name' => 'dashboard'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $layananPermission = Permission::updateOrCreate(
+            ['name' => 'layanan'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+
+        // Give the admin role the relevant permissions
+        $userRole->givePermissionTo($dashboardPermission);
+        $userRole->givePermissionTo($layananPermission);
+        $adminRole->givePermissionTo($dashboardPermission);
+        $adminRole->givePermissionTo($layananPermission);
+        $adminRole->givePermissionTo($pembayaranPermission);
+        $adminRole->givePermissionTo($confirmPembayaranPermission);
+
         // \App\Models\User::factory(10)->create();
         $a1 = Layanan::create([
             'kode'=>'RIKAM',
@@ -444,9 +490,24 @@ class DatabaseSeeder extends Seeder
             'email'=>'aaa@as.com'
         ]);
 
+        $dpasien2 = DataPasien::create([
+            'nik'=>'admin',
+            'nama'=>'Admin K.N',
+            'jenis_kelamin'=>'Laki-laki',
+            'tanggal_lahir'=>'1969-06-09',
+            'tempat_lahir'=>'Namek',
+            'email'=>'sss@ss.com'
+        ]);
+
         $user1 = User::create([
             'nik_id'=>$dpasien1->nik,
             'password'=>'123123123',
+            'status'=>'Aktif'
+        ]);
+
+        $user2 = User::create([
+            'nik_id'=>$dpasien2->nik,
+            'password'=>'admin',
             'status'=>'Aktif'
         ]);
 
@@ -574,6 +635,16 @@ class DatabaseSeeder extends Seeder
             'sisa_saldo'=>$n3->harga,
             'penggunaan'=>0
         ]);
+
+         // Assign the admin role and permissions to the user
+         $user2->assignRole('admin');
+         $user1->assignRole('user');
+         $user1->givePermissionTo('dashboard');
+         $user1->givePermissionTo('layanan');
+         $user2->givePermissionTo('dashboard');
+         $user2->givePermissionTo('layanan');
+         $user2->givePermissionTo('pembayaran');
+         $user2->givePermissionTo('confirmPembayaran');
 
     }
 }
