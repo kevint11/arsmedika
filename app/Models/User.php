@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Xxid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Xxid;
 
     /**
      * The attributes that are mass assignable.
@@ -22,10 +23,12 @@ class User extends Authenticatable
     protected $fillable = [
         'password',
         'nik_id',
+        'email',
         'status',
+        'google_id',
     ];
 
-    protected $primaryKey = 'nik_id';
+    // protected $primaryKey = 'nik_id';
 
     public $incrementing = false;
 
@@ -52,27 +55,25 @@ class User extends Authenticatable
     ];
 
     public function biodata(){
-        return $this->belongsTo(DataPasien::class,'nik_id');
+        return $this->hasOne(DataPasien::class,'user_id');
     }
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
-
-    
     public function spatieRole(){
         return $this->hasOne(ModelHasRoles::class,'model_id');
     }
-
     
     public function findForPassport($identifier)
     {
-        return User::orWhere('nik_id', $identifier)->where('status', 'Aktif')->first();
+        return User::orWhere('id', $identifier)->where('status', 'Aktif')->first();
     }
 
     public function getRoleId()
     {
         return $this->roles()->first()->id ?? '';        
     }
+
+    // public function setPasswordAttribute($password)
+    // {
+    //     $this->attributes['password'] = bcrypt($password);
+    // }
 }

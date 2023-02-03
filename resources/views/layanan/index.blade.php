@@ -53,7 +53,7 @@
                              $limit['90'] = 'per-hari, maksimal 90 hari';
                              $limit['365'] = 'per-tahun';
                              foreach ($layanan as $q) {
-                                 echo '<tr> <td>' . $q->kode . ' (' . $q->kelas . ') </td> <td>' . $q->nama . '</td> <td>' . $limit[$q->batas] . '</td> <td>' . $q->harga . '</td> </tr>';
+                                 echo '<tr> <td>' . $q->kode . ' (' . $q->kelas . ') </td> <td>' . $q->nama . '</td> <td>' . $limit[$q->batas] . '</td> <td>' . number_format($q->harga, 2, ',', '.') . '</td> </tr>';
                              }
                              ?>
                          </tbody>

@@ -11,15 +11,14 @@
     <script src="{{ asset('resources/js/jquery-pack.js') }}"></script> --}}
 <!-- endbuild -->
 
-
 <!-- Vendors JS -->
-<script src="{{ asset('theme-package/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+<script src="{{ asset('theme/sneat/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
 <!-- Page JS -->
-<script src="{{ asset('theme-package/assets/js/dashboards-analytics.js') }}"></script>
+<script src="{{ asset('theme/sneat/assets/js/dashboards-analytics.js') }}"></script>
 
 <!-- Main JS -->
-<script src="{{ asset('theme-package/assets/js/main.js') }}"></script>
+<script src="{{ asset('theme/sneat/assets/js/main.js') }}"></script>
 
 
 <!-- Place this tag in your head or just before your close body tag. -->

@@ -93,12 +93,14 @@
               </ul>
           </li>
       @elseif(auth()->user()->hasRole('user'))
-          <li class="menu-item {{ $active == 'Layanan' ? 'active' : '' }}">
-              <a href="{{ route('Detail Layanan') }}" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">Detail Asuransi</div>
-              </a>
-          </li>
+          @if(auth()->user()->status == 'Aktif')
+            <li class="menu-item {{ $active == 'Layanan' ? 'active' : '' }}">
+                <a href="{{ route('Detail Layanan') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-detail"></i>
+                    <div data-i18n="Form Elements">Detail Asuransi</div>
+                </a>
+            </li> 
+         @endif
       @endif
   </ul>
 </aside>

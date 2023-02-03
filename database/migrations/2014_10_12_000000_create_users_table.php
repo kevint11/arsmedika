@@ -14,13 +14,16 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->string('nik_id')->unique()->primary();
+            $table->uuid('id')->primary();
+            $table->string('email')->unique()->nullable();
+            $table->string('nik_id')->unique()->nullable();
+            $table->string('google_id')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-            $table->enum('status', ['Aktif', 'Nonaktif']);
+            $table->enum('status', ['Aktif', 'Tidak Aktif','Terdaftar','Diblokir']);
         });
     }
 

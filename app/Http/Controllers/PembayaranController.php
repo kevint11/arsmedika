@@ -2,19 +2,171 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PembayaranEvent;
+use App\Models\DataPasien;
 use App\Models\DetailPembayaran;
 use App\Models\HistoryPembayaran;
 use App\Models\KartuPasien;
 use App\Models\Layanan;
 use App\Models\Pembayaran;
 use App\Models\SaldoLayanan;
+use App\Models\User;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PembayaranController extends Controller
 {
+    public function dataDiri(Request $request)
+    { 
+        $validation = Validator::make($request->all(), [
+            'nik_id' => ['required', 'integer', 'regex:/^[0-9]{16}$/', 'unique:user'],
+            'tempat_lahir' => ['required', 'string', 'max:255'],
+            'tanggal_lahir' => ['required', 'string', 'max:255'],
+            'jenis_kelamin' => ['required', 'string', 'max:255'],
+        ],
+        [
+            'nik_id.required' => 'NIK anda belum di isi', 
+            'tempat_lahir.required' => 'Tempat lahir anda belum di isi', 
+            'tanggal_lahir.required' => 'Tanggal lahir anda belum di isi', 
+            'jenis_kelamin.required' => 'Jenis kelamin anda belum di isi',  
+            'nik_id.regex' => 'Format NIK tidak sesuai, harus 16 digit angka',
+            'nik_id.unique' => 'NIK ini sudah terdaftar',  
+            'nik_id.integer' => 'NIK harus berupa angka', 
+        ]);
+
+        // $validation = $request->validate([
+        //     'nik_id'=>['required', 'integer', 'regex:/^[0-9]{16}$/', 'unique:user'],
+        //     'jenis_kelamin' => ['required'],
+        //     'tempat_lahir' => ['required'],
+        //     'tanggal_lahir' => ['required'],
+        // ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        $pasien = DataPasien::where('user_id', auth()->user()->id)->first();
+
+        try {
+            
+            $user->update([
+                'nik_id'=>$validation['nik_id']
+            ]);
+
+            $pasien->update([
+                'nik'=>$validation['nik_id'],
+                'jenis_kelamin' => $validation['jenis_kelamin'],
+                'tempat_lahir' => $validation['tempat_lahir'],
+                'tanggal_lahir' => $validation['tanggal_lahir'],
+            ]);
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error','Ada Kesalahan Sistem');
+        }
+
+        return redirect()->route('Detail Layanan');
+    }
+
+    public function dataKartu(Request $request)
+    { 
+        $validation = $request->validate([
+            'nik_id'=>['required', 'integer', 'min:15', 'unique:user'],
+            'jenis_kelamin' => ['required'],
+            'tempat_lahir' => ['required'],
+            'tanggal_lahir' => ['required'],
+            'kelas'=>['required'],
+            'kode_pembayaran'=>['required'],
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        $pasien = DataPasien::where('user_id', auth()->user()->id)->first();
+        $layanan = Layanan::where('kelas', $validation['kelas'])->get();
+
+        try {
+            
+            $user->update([
+                'nik_id'=>$validation['nik_id'],
+                'status'=>'Aktif'
+            ]);
+
+            $pasien->update([
+                'nik'=>$validation['nik_id'],
+                'jenis_kelamin' => $validation['jenis_kelamin'],
+                'tempat_lahir' => $validation['tempat_lahir'],
+                'tanggal_lahir' => $validation['tanggal_lahir'],
+            ]);
+
+            $kartu = KartuPasien::create([
+                'nik_id'=>$validation['nik_id'],
+                'kelas'=>$validation['kelas'],
+                'tanggal_aktif'=>date("Y-m-d"),
+                'tanggal_kadaluarsa'=>Carbon::createFromFormat('Y-m-d', date("Y-m-d"))->addYears(3),
+                'status'=>'Aktif',
+            ]);
+
+            foreach($layanan as $v){
+                SaldoLayanan::create([
+                    'kartu_id'=>$kartu->id,
+                    'layanan_id'=>$v->id,
+                    'kode_layanan'=>$v->kode,
+                    'pembayaran'=>0,
+                    'sisa_saldo'=>$v->harga,
+                    'penggunaan'=>0,
+                ]);
+            }
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error','Ada Kesalahan');
+        }
+
+        return redirect()->route('Detail Layanan');
+    }
+
+    public function kelasLayanan(Request $request)
+    { 
+        $validation = $request->validate([
+            'kelas'=>'required',
+            'kode_pembayaran'=>'required',
+        ]);
+
+        $user = User::where('nik_id', auth()->user()->nik_id)->first();
+        $layanan = Layanan::where('kelas', $validation['kelas'])->get();
+
+        try {
+            
+            $user->update(['status'=>'Aktif']);
+
+            $kartu = KartuPasien::create([
+                'nik_id'=>auth()->user()->nik_id,
+                'kelas'=>$validation['kelas'],
+                'tanggal_aktif'=>date("Y-m-d"),
+                'tanggal_kadaluarsa'=>Carbon::createFromFormat('Y-m-d', date("Y-m-d"))->addYears(3),
+                'status'=>'Aktif',
+            ]);
+
+            foreach($layanan as $v){
+                SaldoLayanan::create([
+                    'kartu_id'=>$kartu->id,
+                    'layanan_id'=>$v->id,
+                    'kode_layanan'=>$v->kode,
+                    'pembayaran'=>0,
+                    'sisa_saldo'=>$v->harga,
+                    'penggunaan'=>0,
+                ]);
+            }
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error','Ada Kesalahan');
+        }
+
+        return redirect()->route('Detail Layanan');
+    }
 
     public function pembayaran()
     { 
@@ -31,6 +183,8 @@ class PembayaranController extends Controller
         $validation = $request->validate([
             'nik_id'=>'required',
             'kode_kwitansi'=>'required',
+            'start_date'=>'required',
+            'end_date'=>'required',
             'RIKAM'=>'required_with:qRIKAM',
             'RIKDU'=>'required_with:qRIKDU',
             'RIKDS'=>'required_with:qRIKDS',
@@ -78,7 +232,7 @@ class PembayaranController extends Controller
                 'biaya_akhir'=>0,
             ]);
 
-            $biaya = $potongan = 0;
+            $biaya = $potongan = $akhir = 0;
             
             foreach($layananReq as $kode=>$harga){
                 
@@ -128,6 +282,7 @@ class PembayaranController extends Controller
                     $biaya = $biaya + (int)$harga;
                     $potongan = $potongan + $potonganSaldo;
                     $total = (int)$harga - $potonganSaldo;
+                    $akhir = $total + $akhir;
                     $sisaSaldo = $potonganSaldo - (int)$harga;
 
                     $detail = DetailPembayaran::create([
@@ -155,9 +310,9 @@ class PembayaranController extends Controller
 
                 }
             }
-            $total = $biaya - $potongan;
-            $pembayaran->update(['total_biaya'=>$biaya, 'total_potongan'=>$potongan, 'biaya_akhir'=>$total < 0 ? 0 : $total]);
             
+            $pembayaran->update(['total_biaya'=>$biaya, 'total_potongan'=>$potongan, 'biaya_akhir'=>$akhir]);
+            event(new PembayaranEvent($pembayaran, 'created'));
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

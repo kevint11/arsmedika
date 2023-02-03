@@ -7,45 +7,43 @@
 
     <meta name="description" content="" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('theme-package/assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('theme/sneat/assets/img/favicon/favicon.ico') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet" />
 
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link href="{{ asset('theme-package/assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('theme-package/assets/vendor/fonts/boxicons.css') }}" />
+    <link href="{{ asset('theme/datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('theme/sneat/assets/vendor/fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('theme-package/assets/vendor/css/core.css') }}"
+    <link rel="stylesheet" href="{{ asset('theme/sneat/assets/vendor/css/core.css') }}"
         class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('theme-package/assets/vendor/css/theme-default.css') }}"
+    <link rel="stylesheet" href="{{ asset('theme/sneat/assets/vendor/css/theme-default.css') }}"
         class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('theme-package/assets/css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('theme/sneat/assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet"
-        href="{{ asset('theme-package/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+        href="{{ asset('theme/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="{{ asset('theme-package/assets/vendor/css/pages/page-auth.css') }}" />
+    <link rel="stylesheet" href="{{ asset('theme/sneat/assets/vendor/css/pages/page-auth.css') }}" />
     <!-- Helpers -->
-    <script src="{{ asset('theme-package/assets/vendor/js/helpers.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/js/helpers.js') }}"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('theme-package/assets/js/config.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/js/config.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-    <script src="{{ asset('theme-package/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('theme-package/assets/vendor/js/menu.js') }}"></script>
+    <script src="{{ asset('theme/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('theme/sneat/assets/vendor/js/menu.js') }}"></script>

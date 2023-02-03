@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
+
 class LoginController extends Controller
 {
     /*
@@ -51,16 +56,32 @@ class LoginController extends Controller
 
     protected function credentials(Request $request)
     {
-        $credentials = $request->only($this->username(), 'password');
-        $data = Arr::add($credentials, 'status', 'Aktif');
+        $user = User::where('nik_id', $request->nik_id)->first();
+        
+        if (!empty($user)){    
+            $credentials = $request->only('nik_id','password');
+        } else {
+            $user = User::where('email', $request->nik_id)->first();
+            $credentials = array('email'=>$request->nik_id, 'password'=>$request->password);
+        }
+        
+        if ($user !== null && $user->status == 'Terdaftar') {
+            $data = Arr::add($credentials, 'status', 'Terdaftar');
+        } else {
+            $data = Arr::add($credentials, 'status', 'Aktif');
+        }
+
         return $data;
     }
 
-    public function logout(Request $request)
+    /**
+     * The user has been authenticated.
+     *
+     */
+    protected function authenticated(Request $request)
     {
-        $this->guard()->logout();
-        $request->session()->invalidate();
-        return redirect('/');
+        $password = $request->input('password');
+        Auth::logoutOtherDevices($password);
     }
 
 }

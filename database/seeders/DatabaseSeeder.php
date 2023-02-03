@@ -21,50 +21,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
-        // Reset cached roles and permissions
-        app()['cache']->forget('spatie.permission.cache');
-
-        // Create the admin role
-        $adminRole = Role::create([
-            'name' => 'admin',
-            'guard_name' => 'web',
-        ]);
-        $userRole = Role::create([
-            'name' => 'user',
-            'guard_name' => 'web'
-        ]);
-
-        $pembayaranPermission = Permission::updateOrCreate(
-            ['name' => 'pembayaran'],
-            ['guard_name' => 'web',
-            'menu' => null,
-        ]);
-        $confirmPembayaranPermission = Permission::updateOrCreate(
-            ['name' => 'confirmPembayaran'],
-            ['guard_name' => 'web',
-            'menu' => null,
-        ]);
-        $dashboardPermission = Permission::updateOrCreate(
-            ['name' => 'dashboard'],
-            ['guard_name' => 'web',
-            'menu' => null,
-        ]);
-        $layananPermission = Permission::updateOrCreate(
-            ['name' => 'layanan'],
-            ['guard_name' => 'web',
-            'menu' => null,
-        ]);
-
-        // Give the admin role the relevant permissions
-        $userRole->givePermissionTo($dashboardPermission);
-        $userRole->givePermissionTo($layananPermission);
-        $adminRole->givePermissionTo($dashboardPermission);
-        $adminRole->givePermissionTo($layananPermission);
-        $adminRole->givePermissionTo($pembayaranPermission);
-        $adminRole->givePermissionTo($confirmPembayaranPermission);
 
         // \App\Models\User::factory(10)->create();
+
+        // Data Layanan Asuransi
         $a1 = Layanan::create([
             'kode'=>'RIKAM',
             'kelas'=>'PM-100',
@@ -481,36 +441,109 @@ class DatabaseSeeder extends Seeder
             'harga'=>2500000
         ]);
 
-        $dpasien1 = DataPasien::create([
-            'nik'=>'12233300004444',
-            'nama'=>'Kevin F.S',
-            'jenis_kelamin'=>'Laki-laki',
-            'tanggal_lahir'=>'1997-12-11',
-            'tempat_lahir'=>'Medan',
-            'email'=>'aaa@as.com'
+
+        // Reset cached roles and permissions
+        app()['cache']->forget('spatie.permission.cache');
+
+        // Create all roles
+        $adminRole = Role::create([
+            'name' => 'admin',
+            'guard_name' => 'web',
+        ]);
+        $userRole = Role::create([
+            'name' => 'user',
+            'guard_name' => 'web'
         ]);
 
-        $dpasien2 = DataPasien::create([
-            'nik'=>'admin',
-            'nama'=>'Admin K.N',
-            'jenis_kelamin'=>'Laki-laki',
-            'tanggal_lahir'=>'1969-06-09',
-            'tempat_lahir'=>'Namek',
-            'email'=>'sss@ss.com'
+        // Create all permissions
+        $pembayaranPermission = Permission::updateOrCreate(
+            ['name' => 'pembayaran'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $confirmPembayaranPermission = Permission::updateOrCreate(
+            ['name' => 'confirmPembayaran'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $dashboardPermission = Permission::updateOrCreate(
+            ['name' => 'dashboard'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+        $layananPermission = Permission::updateOrCreate(
+            ['name' => 'layanan'],
+            ['guard_name' => 'web',
+            'menu' => null,
+        ]);
+
+        // Give permission to every role
+        $userRole->givePermissionTo($dashboardPermission);
+        $userRole->givePermissionTo($layananPermission);
+        
+        $adminRole->givePermissionTo($dashboardPermission);
+        $adminRole->givePermissionTo($layananPermission);
+        $adminRole->givePermissionTo($pembayaranPermission);
+        $adminRole->givePermissionTo($confirmPembayaranPermission);
+
+
+        // Akun Pasien dan Admin
+        $user2 = User::create([
+            'email'=>'admin@ars.com',
+            'nik_id'=>'admin',
+            'password'=>bcrypt('admin'),
+            'status'=>'Aktif'
         ]);
 
         $user1 = User::create([
-            'nik_id'=>$dpasien1->nik,
-            'password'=>'123123123',
+            'email'=>'pasien@ars.com',
+            'nik_id'=>'12233300004444',
+            'password'=>bcrypt('123123123'),
             'status'=>'Aktif'
         ]);
 
-        $user2 = User::create([
-            'nik_id'=>$dpasien2->nik,
-            'password'=>'admin',
-            'status'=>'Aktif'
+        $user3 = User::create([
+            'email'=>'putri@ars.com',
+            'nik_id'=>'123321123321',
+            'password'=>bcrypt('123123123'),
+            'status'=>'Diblokir'
+        ]);
+                
+
+        // Data Pasien dan Admin
+        $dpasien2 = DataPasien::create([
+            'nik'=>'admin',
+            'user_id'=>$user2->id,
+            'nama'=>'Admin S.N',
+            'jenis_kelamin'=>'Laki-laki',
+            'tanggal_lahir'=>'1969-06-09',
+            'tempat_lahir'=>'Sukamiskin',
         ]);
 
+        $dpasien1 = DataPasien::create([
+            'nik'=>'12233300004444',
+            'user_id'=>$user1->id,
+            'nama'=>'Pasien F.S',
+            'jenis_kelamin'=>'Laki-laki',
+            'tanggal_lahir'=>'1971-12-12',
+            'tempat_lahir'=>'Lapas',
+        ]);
+
+        $dpasien3 = DataPasien::create([
+            'nik'=>'123321123321',
+            'user_id'=>$user3->id,
+            'nama'=>'Putri Mirna',
+            'jenis_kelamin'=>'Perempuan',
+            'tanggal_lahir'=>'1974-04-25',
+            'tempat_lahir'=>'Rutan',
+        ]);
+
+        // Assign user to role and permission
+        $user2->assignRole('admin');
+        $user1->assignRole('user');
+        $user3->assignRole('user');
+
+        // Kartu Pasien untuk Setiap Saldo Layanan
         $kpasien1 = KartuPasien::create([
             'nik_id'=>$dpasien1->nik,
             'kelas'=>'PM-400',
@@ -636,15 +669,12 @@ class DatabaseSeeder extends Seeder
             'penggunaan'=>0
         ]);
 
-         // Assign the admin role and permissions to the user
-         $user2->assignRole('admin');
-         $user1->assignRole('user');
-         $user1->givePermissionTo('dashboard');
-         $user1->givePermissionTo('layanan');
-         $user2->givePermissionTo('dashboard');
-         $user2->givePermissionTo('layanan');
-         $user2->givePermissionTo('pembayaran');
-         $user2->givePermissionTo('confirmPembayaran');
+        //  $user1->givePermissionTo('dashboard');
+        //  $user1->givePermissionTo('layanan');
+        //  $user2->givePermissionTo('dashboard');
+        //  $user2->givePermissionTo('layanan');
+        //  $user2->givePermissionTo('pembayaran');
+        //  $user2->givePermissionTo('confirmPembayaran');
 
     }
 }
