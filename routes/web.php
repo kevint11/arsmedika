@@ -26,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('Dashboard')->middleware('role:admin|user');
+    Route::get('/ganti-password', [App\Http\Controllers\UserController::class, 'formPassword'])->name('Form Password')->middleware('role:admin|user');
+    Route::post('/ganti-password', [App\Http\Controllers\UserController::class, 'gantiPassword'])->name('Ganti Password')->middleware('role:admin|user');
     Route::get('/daftar-layanan', [App\Http\Controllers\LayananController::class, 'tblLayanan'])->name('Daftar Layanan')->middleware('role:admin');
     Route::get('/detail-layanan', [App\Http\Controllers\LayananController::class, 'saldo'])->name('Detail Layanan')->middleware('role:user');
     

@@ -45,15 +45,15 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('Dashboard') }}">
                             <i class="bx bx-user me-2"></i>
                             <span class="align-middle">Profil</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('Ganti Password') }}">
                             <i class="bx bx-cog me-2"></i>
-                            <span class="align-middle">Pengaturan</span>
+                            <span class="align-middle">Ganti Password</span>
                         </a>
                     </li>
                     <li>

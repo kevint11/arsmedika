@@ -9,4 +9,14 @@ class UserController extends Controller
         return view('profile.index');
     }
 
+    public function formPassword()
+    {
+        return view('profile.gantiPassword');
+    }
+
+    public function gantiPassword()
+    {
+        return view('profile.index');
+    }
+
 }
