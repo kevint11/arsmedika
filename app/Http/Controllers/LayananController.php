@@ -13,7 +13,7 @@ class LayananController extends Controller
     
     public function tblLayanan()
     {
-        $layanan = Layanan::all();
+        $layanan = Layanan::paginate(10);
         return view('layanan.index',compact('layanan'));
     }
 

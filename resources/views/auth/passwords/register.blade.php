@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Reset Password</title>
+    <title>Daftar Akun</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -37,7 +37,7 @@
             margin-right: 10px;
             position: relative;
             z-index: 1;
-            cursor: pointer;
+            cursor:pointer;
         }
     </style>
 </head>
@@ -119,60 +119,123 @@
                             {!! implode(
                                 '',
                                 $errors->all(' <div class="alert alert-danger alert-dismissible" role="alert">
-                                                                                                                :message <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>'),
+                                                        :message <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div>'),
                             ) !!}
                         @endif
                         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                            <h1 class="display-5 mb-5">Reset Password</h1>
+                            <h1 class="display-5 mb-5">Daftar Baru</h1>
                         </div>
-
-                        <!-- reset.blade.php -->
-                        <form method="POST" action="{{ route('password.update') }}">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <input type="hidden" name="token" value="{{ $token }}">
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="email" name="email"
-                                            class="form-control @error('email') is-invalid @enderror" id="email"
-                                            placeholder="Masukkan email anda disini" autofocus
-                                            value="{{ $email ?? old('email') }}" autocomplete="email" required>
-                                        <label for="mail">Your Email</label>
+                                        <input type="text" class="form-control" name="nama" id="nama"
+                                            placeholder="Nama Lengkap Anda" autofocus value="{{ old('nama') }}"
+                                            autocomplete="nama" required>
+                                        <label for="nama">Nama Lengkap</label>
+                                        @error('nama')
+                                            <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="nik_id" class="form-control" id="nik_id"
+                                            placeholder="NIK Anda" autofocus value="{{ old('nik_id') }}"
+                                            autocomplete="nik_id" required>
+                                        <label for="nik_id">NIK</label>
+                                        @error('nik_id')
+                                            <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" class="form-control" id="mail"
+                                            placeholder="Email Anda" autofocus value="{{ old('email') }}"
+                                            autocomplete="email" required>
+                                        <label for="mail">Email</label>
                                         @error('email')
                                             <div class="error">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-
-                                <div class="col-12">
+                                <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input id="password" type="password"
+                                        <select id="jenis_kelamin" class="form-control" name="jenis_kelamin">
+                                            <option selected disabled></option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Wanita">Wanita</option>
+                                        </select>
+                                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                                        @error('jenis_kelamin')
+                                            <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" name="tempat_lahir" class="form-control"
+                                            id="tempat_lahir" placeholder="Tempat Lahir" autofocus
+                                            value="{{ old('tempat_lahir') }}" autocomplete="tempat_lahir" required>
+                                        <label for="tempat_lahir">Tempat Lahir</label>
+                                        @error('tempat_lahir')
+                                            <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" name="tanggal_lahir" class="form-control datepicker"
+                                            id="tanggal_lahir" placeholder="Tanggal Lahir" autofocus
+                                            value="{{ old('tanggal_lahir') }}" autocomplete="tanggal_lahir" required>
+                                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                                        @error('tanggal_lahir')
+                                            <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="password" name="password"
                                             class="form-control @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="new-password">
-                                        <label for="password">Your New Password</label>
+                                            id="password"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            aria-describedby="password" autofocus value="{{ old('password') }}"
+                                            autocomplete="current-password" required>
+                                            <span class="p-viewer">
+                                                <i class="bi bi-eye-slash" id="togglePassword" aria-hidden="true"></i>
+                                              </span>
+                                        <label for="password">Password</label>
                                         @error('password')
                                             <div class="error">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-
-                                <div class="col-12">
+                                <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input id="password-confirm" type="password" class="form-control"
-                                            name="password_confirmation" required autocomplete="new-password">
-                                        <label for="password-confirm">Confirm Password</label>
-                                        @error('password')
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            id="password_confirmation" placeholder="Ketik Ulang Password" autofocus
+                                            value="{{ old('password_confirmation') }}"
+                                            autocomplete="password_confirmation" required>
+                                            <span class="p-viewer">
+                                                <i class="bi bi-eye-slash" id="toggleConfirmPassword" aria-hidden="true"></i>
+                                            </span>
+                                        <label for="password_confirmation">Ketik Ulang Password</label>
+                                        @error('password_confirmation')
                                             <div class="error">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary w-100 py-3">
-                                        {{ __('Reset Password') }}
-                                    </button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Daftar</button>
+                                    <a class="btn btn-danger btn-block w-100 mt-3 py-3" href="{{ route('Google Login') }}">
+                                        <i class="fab fa-google-plus mr-8"> </i> &nbsp Daftar dengan Google +
+                                    </a>
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -180,8 +243,8 @@
     </div>
     <!-- Callback End -->
 
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
+     <!-- Copyright Start -->
+     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
@@ -215,27 +278,27 @@
             format: 'yyyy-mm-dd',
             autoclose: true
         });
-
+        
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
 
         const toggleConfirmPassword = document.querySelector("#toggleConfirmPassword");
         const confirmPassword = document.querySelector("#password_confirmation");
 
-        togglePassword.addEventListener("click", function() {
+        togglePassword.addEventListener("click", function () {
             const type = password.getAttribute("type") === "password" ? "text" : "password";
             password.setAttribute("type", type);
             this.classList.toggle("bi-eye");
         });
 
-        toggleConfirmPassword.addEventListener("click", function() {
+        toggleConfirmPassword.addEventListener("click", function () {
             const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
             confirmPassword.setAttribute("type", type);
             this.classList.toggle("bi-eye");
         });
 
         const form = document.querySelector("form");
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
         });
     </script>

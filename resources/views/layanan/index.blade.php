@@ -58,6 +58,27 @@
                              ?>
                          </tbody>
                      </table>
+
+                     <div class="demo-inline-spacing">
+                        <nav aria-label="Page navigation">
+                            @if ($layanan->lastPage() > 1)
+                          <ul class="pagination justify-content-end">
+                            <li class="page-item prev {{ ($layanan->currentPage() == 1) ? 'disabled' : '' }}">
+                              <a class="page-link" href="{{ $layanan->url(1) }}"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                            </li>
+                            @for ($i = 1; $i <= $layanan->lastPage(); $i++)
+                                <li class="page-item {{ ($layanan->currentPage() == $i) ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $layanan->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li class="page-item next {{ ($layanan->currentPage() == $layanan->lastPage()) ? 'disabled' : '' }}">
+                              <a class="page-link" href="{{ $layanan->url($layanan->lastPage()) }}"><i class="tf-icon bx bx-chevrons-right"></i></a>
+                            </li>
+                          </ul>
+                            @endif
+                        </nav>
+                      </div>
+                    {{-- {{ $layanan->links() }} --}}
                  </div>
              </div>
              <!--/ Hoverable Table rows -->

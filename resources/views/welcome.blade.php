@@ -292,11 +292,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Layanan</h4>
-                    <a class="btn btn-link" href="">Financial Planning</a>
-                    <a class="btn btn-link" href="">Cash Investment</a>
-                    <a class="btn btn-link" href="">Financial Consultancy</a>
-                    <a class="btn btn-link" href="">Business Loans</a>
-                    <a class="btn btn-link" href="">Business Analysis</a>
+                    <a class="btn btn-link" href="">Health Insurance</a>
+                    <a class="btn btn-link" href="">Health Monitors</a>
+                    <a class="btn btn-link" href="">Health Consultancy</a>
+                    <a class="btn btn-link" href="">FAQ</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Link</h4>
