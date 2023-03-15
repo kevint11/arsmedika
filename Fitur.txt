@@ -6,15 +6,15 @@ Fitur
 - Bisa Login/Register dengan akun Google
 - Tersedia API
 - Tersedia Event dan Listener yang berfungsi sebagai log pembayaran
-- 
-
-Upcoming
 - Lupa Password
 - Ganti Password
 - Pagination
-- Login/ Register dengan Facebook
-- Redis
+- 
+
+Upcoming
+- Upload gambar (Struk Pembayaran)
 - Laravel OAuth 2.0 dan Laravel Passport
 - Setiap respon API menggunakan Laravel API resource
-- Upload gambar (Struk Pembayaran)
+- Redis
+- Login/ Register dengan Facebook
 - 
