@@ -123,7 +123,7 @@
                             ) !!}
                         @endif
                         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                            <h1 class="display-5 mb-5">Reset Password</h1>
+                            <h1 class="display-5 mb-5">🔒 Reset Password 🔒</h1>
                         </div>
 
                         <!-- reset.blade.php -->

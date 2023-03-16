@@ -9,10 +9,10 @@ Fitur
 - Lupa Password
 - Ganti Password
 - Pagination
+- Upload gambar (Struk Pembayaran)
 - 
 
 Upcoming
-- Upload gambar (Struk Pembayaran)
 - Laravel OAuth 2.0 dan Laravel Passport
 - Setiap respon API menggunakan Laravel API resource
 - Redis

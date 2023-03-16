@@ -25,15 +25,16 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Selamat datang {{ Auth::user()->biodata->nama }}! 🎉</h5>
+                            {{-- <img width="500" src="{{ asset('storage/app/uploads/bukti_struk/1678867135_7e19efe2e45e4c629def8cf7da317b6f.jpg') }}" alt=""> --}}
+                            <h5 class="card-title text-primary">Selamat datang {{ Auth::user()->biodata->nama }}! 🏥</h5>
                             @if (session('status'))
                                 <h3 class="card-title text-success">    {{ session('status') }} </h3>
                             @endif
                             <p class="mb-4">
-                                Progress pengembangan sistem masih <span class="fw-bold text-info">68%</span>.
+                                Progress pengembangan sistem : <span class="fw-bold text-info">70%</span>.
                             </p>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 68%" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
 
                         </div>

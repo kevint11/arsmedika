@@ -185,6 +185,7 @@ class PembayaranController extends Controller
             'kode_kwitansi'=>'required',
             'start_date'=>'required',
             'end_date'=>'required',
+            'bukti_struk'=>'required',
             'RIKAM'=>'required_with:qRIKAM',
             'RIKDU'=>'required_with:qRIKDU',
             'RIKDS'=>'required_with:qRIKDS',
@@ -216,6 +217,13 @@ class PembayaranController extends Controller
             'qRIPOB.required_with'=>'Harus isi jumlah operasi besar.',
         ]);
 
+        $fileName = '';
+        if ($request->hasFile('bukti_struk')) {
+            $bukti_struk = $request->file('bukti_struk');
+            $fileName = time() . '_' . $bukti_struk->getClientOriginalName();
+            $filePath = $bukti_struk->storeAs('uploads/bukti_struk', $fileName);
+        }
+        
         $kartu = KartuPasien::where('nik_id', $validation['nik_id'])->first();
         $layanan = Layanan::where('kelas', $kartu->kelas)->get();
         $saldo = SaldoLayanan::where('kartu_id', $kartu->id)->get();
@@ -227,6 +235,9 @@ class PembayaranController extends Controller
             $pembayaran = Pembayaran::create([
                 'kartu_id'=>$kartu->id,
                 'kode_kwitansi'=>request('kode_kwitansi'),
+                'tanggal_awal'=>request('start_date'),
+                'tanggal_akhir'=>request('end_date'),
+                'bukti_struk'=>$fileName,
                 'total_biaya'=>0,
                 'total_potongan'=>0,
                 'biaya_akhir'=>0,

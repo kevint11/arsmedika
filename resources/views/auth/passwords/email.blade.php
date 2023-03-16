@@ -111,7 +111,7 @@
                             ) !!}
                         @endif
                         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                            <h1 class="display-5 mb-5">Password Recovery</h1>
+                            <h3 class="display-7 mb-5"> Password Recovery 🔒</h3>
                         </div>
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf

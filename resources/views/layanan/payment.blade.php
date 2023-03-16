@@ -26,7 +26,7 @@
     </div>
     @endif
     
-    <form method="POST" action="{{ route('Konfirmasi Pembayaran') }}">
+    <form method="POST" action="{{ route('Konfirmasi Pembayaran') }}" enctype="multipart/form-data">
       @csrf
     <div class="card mb-4">
       <h5 class="card-header">Detail Umum</h5>
@@ -66,6 +66,16 @@
           <div class="col-md-10">
             <input name="end_date" class="form-control datepicker" type="text" placeholder="Akhir Dirawat" value="2012-12-12" id="end_date" required/>
             @error('end_date')
+                <div class="error">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="bukti_struk" class="col-md-2 col-form-label">Bukti Pembayaran</label>
+          <div class="col-md-10">
+            <input name="bukti_struk" class="form-control" type="file" id="bukti_struk" required/>
+            @error('bukti_struk')
                 <div class="error">{{ $message }}</div>
             @enderror
           </div>

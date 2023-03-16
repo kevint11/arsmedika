@@ -62,6 +62,9 @@ class CreateLayananTable extends Migration
             $table->uuid('id')->primary();
             $table->string('kartu_id');
             $table->string('kode_kwitansi');
+            $table->string('bukti_struk');
+            $table->date('tanggal_awal');
+            $table->date('tanggal_akhir');
             $table->unsignedBigInteger('total_biaya');
             $table->unsignedBigInteger('total_potongan');
             $table->unsignedBigInteger('biaya_akhir');
@@ -105,5 +108,6 @@ class CreateLayananTable extends Migration
         Schema::dropIfExists('data_pasien');
         Schema::dropIfExists('saldo_layanan');
         Schema::dropIfExists('pembayaran');
+        Schema::dropIfExists('history_pembayaran');
     }
 }
